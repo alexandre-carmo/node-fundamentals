@@ -1,13 +1,17 @@
 import http from 'node:http'
+import { json } from './middlewares/json.js';
 
+// fake database
 const users = [];
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
 	const { method, url } = req;
+
+	// load json req
+	await json(req, res)
 
 	if (method === 'GET' && url === '/users') {
 		return res
-			.setHeader('Content-type', 'application/json')
 			.end(JSON.stringify(users));
 	}
 

@@ -10,7 +10,7 @@ export class OneToHundredStream extends Readable {
 
         // run every 1s
         setTimeout(() => {
-            if (i > 100) {
+            if (i > 5) {
                 // send data to consumer
                 this.push(null)
             } else {
