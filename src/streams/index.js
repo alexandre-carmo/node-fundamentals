@@ -2,5 +2,5 @@ import { InverseNumberStream, MultiByTenStream, OneToHundredStream } from "./str
 
 // Read -> Transform -> Process
 new OneToHundredStream()
-    .pipe(new InverseNumberStream())
-    .pipe(new MultiByTenStream())
+  .pipe(new InverseNumberStream())
+  .pipe(new MultiByTenStream())

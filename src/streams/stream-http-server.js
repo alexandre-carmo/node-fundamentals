@@ -5,22 +5,22 @@ import { InverseNumberStream } from './streams.js'
 // res => WritableStream
 
 const server = http.createServer(async (req, res) => {
-    const buffers = [];
+  const buffers = [];
 
-    // loading full stream content
-    for await (const chuck of req) {
-        buffers.push(chuck)
-    }
+  // loading full stream content
+  for await (const chuck of req) {
+    buffers.push(chuck)
+  }
 
-    const fullStreamContent = Buffer.concat(buffers).toString()
-
-
-    return res.end(fullStreamContent)
+  const fullStreamContent = Buffer.concat(buffers).toString()
 
 
-    // return req
-    //     .pipe(new InverseNumberStream())
-    //     .pipe(res)
+  return res.end(fullStreamContent)
+
+
+  // return req
+  //     .pipe(new InverseNumberStream())
+  //     .pipe(res)
 
 })
 
